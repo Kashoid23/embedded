@@ -1,0 +1,2 @@
+../Core/Src/moving_average.c:9:6:moving_average_reset	2
+../Core/Src/moving_average.c:20:10:moving_average_add	3

@@ -2,6 +2,7 @@
 
 | Project | Board | Components | Framework | Tools | Description |
 |---|---|---|---|---|---|
+| HW 3.1 | STM32F411CEU6 | NTC thermistor 10k, LED | STM32 HAL | STM32CubeMX, STM32CubeIDE | ADC oneshot, SMA ring buffer, Beta equation, hysteresis |
 | HW 2.6 | ESP32-S3 N16R8 | Button, 2 LEDs | ESP-IDF + FreeRTOS | PlatformIO | GPIO interrupt, debounce, esp_timer |
 | HW 2.5 | STM32F411CEU6 | Relay module JQC-3F, DC motor | STM32 HAL | STM32CubeMX, STM32CubeIDE | Hardware timer PWM, watchdog (IWDG), open-drain relay drive |
 | L 2.5 | ESP32-S3 N16R8 | KY-040 encoder, passive buzzer | ESP-IDF + FreeRTOS | PlatformIO | Quadrature encoder, hardware timer, PWM (LEDC) |
