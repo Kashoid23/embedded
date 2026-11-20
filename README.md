@@ -14,13 +14,13 @@
 | L 2.4 | STM32F411CEU6 | Button, 2 LEDs | STM32 HAL | STM32CubeMX, STM32CubeIDE | EXTI debounce, non-blocking timing | - |
 | HW 2.3 | STM32F411CEU6 | Button, 2 LEDs | STM32 HAL | STM32CubeMX, STM32CubeIDE | Superloop, non-blocking timing, debounce | - |
 | HW 2.2 | STM32F411CEU6 | Relay module JQC-3F, logic analyzer | STM32 HAL | STM32CubeMX, STM32CubeIDE, PulseView | Relay switching time measurement, EXTI, open-drain | [Video](https://drive.google.com/file/d/1JIcO3V_hDTBrTLFzdYlbB36XDn7QN_Bk/view?usp=sharing) |
-| HW 2.1 | ESP32-S3 N16R8 | Button, LED | Arduino | PlatformIO | Non-blocking timing, driver classes, ISR | [Video](https://drive.google.com/file/d/1XsS6z0-O4zRYEV8U6v-IdS0XfYwgkg9b/view?usp=sharing) |
+| HW 2.1 | ESP32-S3 N16R8 | Button, LED | Arduino | PlatformIO | Non-blocking timing, driver classes, ISR | - |
 | L 1.7 | STM32F411CEU6 | Button, LED | STM32 HAL | STM32CubeMX, STM32CubeIDE | GPIO, HAL basics | - |
-| HW 1.6 | ESP32-S3 N16R8 | LDR | Arduino | PlatformIO | ADC, voltage divider, measurement error | - |
+| HW 1.6 | ESP32-S3 N16R8 | LDR | Arduino | PlatformIO | ADC, voltage divider, measurement error | [Wokwi](https://wokwi.com/projects/478118996856095745) |
 | L 1.6 | ESP32-S3 N16R8 | LDR, LED | Arduino | PlatformIO | ADC, averaging, hysteresis | [Video](https://drive.google.com/file/d/1gxRNAMV3uwsGTd6CSP4lNnThisYcWrQT/view?usp=sharing) |
 | HW 1.5 | ESP32-S3 N16R8 | Button | Arduino | PlatformIO | Interrupts (ISR), volatile | - |
 | L 1.5 | ESP32-S3 N16R8 | Button, logic analyzer | Arduino | PlatformIO, PulseView | Debounce, interrupt vs polling | [Image](https://drive.google.com/file/d/13Gm6B7kNh5ganqlp2WylpV0dobQ9wBDe/view?usp=sharing) |
-| HW 1.4 | ESP32-S3 N16R8 | Button, 2 LEDs | Arduino | PlatformIO | Button polling, mode FSM | - |
-| L 1.4 | ESP32-S3 N16R8 | Button | Arduino | PlatformIO | GPIO input, pull-up | - |
+| HW 1.4 | ESP32-S3 N16R8 | Button, 2 LEDs | Arduino | PlatformIO | Button polling, mode FSM | [Video](https://drive.google.com/file/d/1XsS6z0-O4zRYEV8U6v-IdS0XfYwgkg9b/view?usp=sharing) |
+| L 1.4 | ESP32-S3 N16R8 | Button | Arduino | PlatformIO | GPIO input, pull-up | [Wokwi](https://wokwi.com/projects/477697142352863233) |
 | HW 1.3 | ESP32-S3 N16R8 | 2 LEDs | Arduino | PlatformIO | GPIO output, blink patterns | [Video](https://drive.google.com/file/d/1cy69lFgOryp7S8-vPTs_1xius7wdKys4/view?usp=sharing) |
 | L 1.3 | ESP32-S3 N16R8 | LED | Arduino | PlatformIO | GPIO output | [Video](https://drive.google.com/file/d/1o0ntKAXLnozGxvl3AXdaBfcLYxaJPf4C/view?usp=sharing) |
