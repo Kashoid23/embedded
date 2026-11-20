@@ -1,0 +1,9 @@
+../Core/Src/adc_dma.c:17:17:GetDmaActiveHalf	3
+../Core/Src/adc_dma.c:34:13:UpdateChannel	2
+../Core/Src/adc_dma.c:54:13:ProcessHalf	5
+../Core/Src/adc_dma.c:93:19:AdcDma_Start	4
+../Core/Src/adc_dma.c:131:6:AdcDma_Process	6
+../Core/Src/adc_dma.c:166:19:AdcDma_Stop	3
+../Core/Src/adc_dma.c:184:6:HAL_ADC_ConvHalfCpltCallback	2
+../Core/Src/adc_dma.c:193:6:HAL_ADC_ConvCpltCallback	2
+../Core/Src/adc_dma.c:202:6:HAL_ADC_ErrorCallback	3
