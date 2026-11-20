@@ -1,0 +1,3 @@
+../Core/Src/thermistor.c:8:10:thermistor_read_adc	3
+../Core/Src/thermistor.c:24:6:thermistor_is_connected	3
+../Core/Src/thermistor.c:29:7:thermistor_adc_to_celsius	1
