@@ -59,7 +59,18 @@ static void MX_ADC1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+volatile uint16_t adc_value = 0u;
+volatile uint8_t adc_ready = 0u;
+volatile uint16_t adc_corrected = 0u;
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+	if (hadc == &hadc1)
+	{
+		adc_value = hadc1.Instance->DR;
+		adc_ready = 1u;
 
+	}
+}
 /* USER CODE END 0 */
 
 /**
@@ -94,14 +105,24 @@ int main(void)
   MX_TIM1_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_NVIC_EnableIRQ(ADC_IRQn);
+  HAL_ADC_Start_IT(&hadc1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 250);
 
   while (1)
   {
+	if (adc_ready == 1u)
+	{
+	   adc_corrected = adc_value > 4000 ? 1000 : adc_value / 4;
+	    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, adc_corrected);
+	   adc_ready = 0u;
+	}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
