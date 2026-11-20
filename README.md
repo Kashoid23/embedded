@@ -2,6 +2,7 @@
 
 | Project | Board | Components | Framework | Tools | Description |
 |---|---|---|---|---|---|
+| L 3.3 | STM32F411CEU6 | Potentiometer, DC motor, 2N2222A, 1N4007, LED | STM32 HAL | STM32CubeMX, STM32CubeIDE | ADC continuous + EOC interrupt, TIM1 complementary PWM (CH1/CH1N), transistor motor drive |
 | HW 3.2 | ESP32-S3 N16R8 | Potentiometer 10k | ESP-IDF + FreeRTOS | PlatformIO | ADC oneshot, eFuse calibration (curve fitting), formula vs calibrated voltage, error table |
 | L 3.2 | STM32F411CEU6 | Potentiometer, LDR | STM32 HAL | STM32CubeMX, STM32CubeIDE | ADC scan + DMA circular, TIM2 TRGO trigger, double buffering, overrun polling |
 | HW 3.1 | STM32F411CEU6 | NTC thermistor 10k, LED | STM32 HAL | STM32CubeMX, STM32CubeIDE | ADC oneshot, SMA ring buffer, Beta equation, hysteresis |
