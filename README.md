@@ -3,6 +3,7 @@
 
 | Project | Board | Components | Framework | Tools | Description | Demo |
 |---|---|---|---|---|---|---|
+| HW 3.3 | ESP32-S3 N16R8 | Potentiometer, LED, DC motor, 2N2222A, 1N4007 | ESP-IDF + FreeRTOS | PlatformIO | ADC oneshot + averaging, LEDC PWM on two independent timers/channels, dead zone + motor start duty, transistor motor drive | |
 | L 3.3 | STM32F411CEU6 | Potentiometer, DC motor, 2N2222A, 1N4007, LED | STM32 HAL | STM32CubeMX, STM32CubeIDE | ADC continuous + EOC interrupt, TIM1 complementary PWM (CH1/CH1N), transistor motor drive | [Video](https://drive.google.com/file/d/1jGUrRYAqdqHug8NbKJ6crWiLG430yuwL/view?usp=sharing) |
 | HW 3.2 | ESP32-S3 N16R8 | Potentiometer | ESP-IDF + FreeRTOS | PlatformIO | ADC oneshot, eFuse calibration (curve fitting), formula vs calibrated voltage, error table | [Image](https://drive.google.com/file/d/1CVvHVtBypNyGOdBuzx9xFkgLijWejXGU/view?usp=sharing) |
 | L 3.2 | STM32F411CEU6 | Potentiometer, LDR | STM32 HAL | STM32CubeMX, STM32CubeIDE | ADC scan + DMA circular, TIM2 TRGO trigger, double buffering, overrun polling | [Image](https://drive.google.com/file/d/16tFEBL3yaKEbQNvQkKMLtgbmX1cwukwt/view?usp=sharing) |
