@@ -13,19 +13,18 @@
 
 ## Схема підключення
 
-<img width="2720" height="1560" alt="stm32f411_relay_final_schematic_active_low" src="https://github.com/user-attachments/assets/6a10454a-e045-4583-a0ba-fe5f2ce757a0" />
+<img width="2720" height="1901" alt="stm32f411_relay_timing_measurement_wiring" src="https://github.com/user-attachments/assets/9e9cec6f-b3f6-4ce9-ad24-a82d8c1df898" />
 
 ## Налаштування CubeMX
 
-<img width="822" height="725" alt="Знімок екрана 2026-10-29 142103" src="https://github.com/user-attachments/assets/a402e557-908f-47db-992f-625c05a4eb3f" />
-<img width="1047" height="605" alt="Знімок екрана 2026-10-29 141846" src="https://github.com/user-attachments/assets/f066614d-9767-40af-b65c-619f1a76d969" />
-<img width="1046" height="81" alt="Знімок екрана 2026-10-29 141908" src="https://github.com/user-attachments/assets/90cc1af9-92b7-4399-90ca-e624f786b497" />
-
-PA1 налаштований як Open Drain, бо модуль реле вмикається низьким рівнем:
-- `LOW` – PA1 з'єднує IN із GND, реле вмикається.
-- `HIGH` – PA1 відпускає IN, модуль сам підтягує його до 5 В, реле вимикається.
-
-У режимі Push-Pull PA1 видавав би лише 3.3 В замість 5 В, і реле не могло б вимкнутися.
+| Розділ | Налаштування |
+|---|---|
+| **SYS** | Debug: Serial Wire |
+| **RCC** | HSE: Crystal/Ceramic Resonator |
+| **Clock** | HSE 25 МГц → PLL (M = 12, N = 96, P = 2) → **100 МГц** |
+| **PA1** | GPIO_Output, **Open Drain**, Output level **High**, No pull, User Label **RELAY** |
+| **PA4** | GPIO_EXTI4, **Rising/Falling edge**, **Pull-up**, User Label **RELAY_CONTACT** |
+| **NVIC** | EXTI line4 interrupt ✅ |
 
 ## Структура коду
 
