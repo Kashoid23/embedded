@@ -6,7 +6,7 @@
 
 ## Схема підключення
 
-<img width="2720" height="1600" alt="esp32s3_encoder_buzzer_schematic" src="https://github.com/user-attachments/assets/588d017e-7ee7-4eca-93a4-29412ac0a7ca" />
+<img width="2720" height="1680" alt="esp32s3_ky040_encoder_buzzer_wiring" src="https://github.com/user-attachments/assets/4219f039-857b-4b37-af50-5dd541486e44" />
 
 ## Як це працює
 
