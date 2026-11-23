@@ -8,11 +8,20 @@ LED1 і Button 1 вбудовані в плату.
 
 ## Схема підключення
 
-<img width="2720" height="1600" alt="blackpill_superloop_schematic_no_footer" src="https://github.com/user-attachments/assets/96b5ea31-cbaf-4e9d-9eaa-193c8249ac9c" />
+<img width="2720" height="1605" alt="stm32f411_hw23_superloop_wiring" src="https://github.com/user-attachments/assets/6ac1aac5-7c3b-4329-aa6c-d5ce6b5d10f0" />
+
 
 ## Налаштування CubeMX
 
-<img width="1517" height="599" alt="Знімок екрана 2026-11-02 180837" src="https://github.com/user-attachments/assets/aacc1b60-3a02-41b2-88e9-df0e0cf30fe2" />
+| Розділ | Налаштування |
+|---|---|
+| **SYS** | Debug: Serial Wire |
+| **Clock** | HSI 16 МГц (за замовчуванням) |
+| **PC13** | GPIO_Output, User Label **LED_1** (вбудований, світить від `LOW`) |
+| **PA0** | GPIO_Input, **Pull-up**, User Label **BUTTON_1** (вбудована кнопка KEY) |
+| **PA1** | GPIO_Input, **Pull-up**, User Label **BUTTON_2** |
+| **PA2** | GPIO_Output, User Label **LED_2** |
+| **PA3** | GPIO_Output, User Label **LED_3** |
 
 ## Як це працює
 
