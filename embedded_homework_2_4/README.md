@@ -6,15 +6,19 @@
 
 ## Схема підключення
 
-<img width="2720" height="1200" alt="stm32f411_button_debounce_schematic_clean" src="https://github.com/user-attachments/assets/3de212de-9d03-42cf-9150-d452bfd766c6" />
+<img width="2720" height="1605" alt="stm32f411_hw24_button_debounce_leds" src="https://github.com/user-attachments/assets/bc563cd7-a781-49c3-b89c-4a8525c90527" />
 
 ## Налаштування CubeMX
 
-<img width="1863" height="805" alt="Знімок екрана 2026-11-04 181103" src="https://github.com/user-attachments/assets/8962ef3b-a4a3-466d-8c68-539ebed73c3c" />
-<img width="1863" height="802" alt="Знімок екрана 2026-11-04 181232" src="https://github.com/user-attachments/assets/1a39fe1d-04d6-4d2a-9a1e-de818ed76d8a" />
-<img width="1864" height="805" alt="Знімок екрана 2026-11-04 181141" src="https://github.com/user-attachments/assets/e1d17562-6e3c-43e0-bdfc-9610a092a0af" />
-<img width="1863" height="797" alt="Знімок екрана 2026-11-04 181307" src="https://github.com/user-attachments/assets/cf0a6990-f367-4231-ba75-219057328593" />
-<img width="1861" height="814" alt="Знімок екрана 2026-11-04 181410" src="https://github.com/user-attachments/assets/ecd59164-0cc4-46de-8218-53d59bd60db1" />
+| Розділ | Налаштування |
+|---|---|
+| **SYS** | Debug: Serial Wire |
+| **RCC** | HSE: Crystal/Ceramic Resonator |
+| **Clock** | HSE 25 МГц → PLL (M = 12, N = 96, P = 2) → **100 МГц** |
+| **PB5** | GPIO_EXTI5, mode **External Interrupt with Rising/Falling edge**, **Pull-up**, User Label **BUTTON** |
+| **PB6** | GPIO_Output, Output level Low, User Label **LED_1** |
+| **PB7** | GPIO_Output, Output level Low, User Label **LED_2** |
+| **NVIC** | EXTI line[9:5] interrupts ✅ |
 
 ## Режими
 
