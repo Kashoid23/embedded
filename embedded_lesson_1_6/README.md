@@ -2,4 +2,4 @@
 
 > Led OFF IF > 2200
 
-<img width="1118" height="498" alt="Знімок екрана 2026-10-17 123742" src="https://github.com/user-attachments/assets/7e392ff4-fdbe-4151-abf0-4a3a7957578b" />
+<img width="2720" height="1560" alt="esp32s3_ldr_divider_led_wiring" src="https://github.com/user-attachments/assets/4d80f481-308e-4f2d-8d0f-f31916ebce52" />
