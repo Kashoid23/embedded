@@ -1,4 +1,4 @@
-https://github.com/user-attachments/assets/e133b980-91c5-4c69-9314-f8258932a18a
+<img width="2720" height="1205" alt="esp32s3_hw13_red_blue_leds" src="https://github.com/user-attachments/assets/bb45b9c3-5ff4-4a5f-8f29-a654e80e0219" />
 
 ### BONUS
 
