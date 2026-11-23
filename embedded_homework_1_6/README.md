@@ -1,1 +1,1 @@
-<img width="1120" height="208" alt="Знімок екрана 2026-10-17 134523" src="https://github.com/user-attachments/assets/bc353398-02fb-4142-ad24-4be838daa6c1" />
+<img width="2720" height="1285" alt="esp32s3_hw16_ldr_divider_gpio4" src="https://github.com/user-attachments/assets/ea0eeff5-fed7-417a-a8a2-498cb487ea4b" />
