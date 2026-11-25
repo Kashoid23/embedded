@@ -292,7 +292,97 @@ arm-none-eabi-size firmware.elf
 
 > `mini.ld` спрощений: у справжньому проєкті CubeIDE за адресою `0x08000000` лежить таблиця векторів, а не `main`.
 
-## 6. Підсумок
+## 6. Make: збирання однією командою
+
+Make — програма, яка запускає команди збирання за правилами з файлу `Makefile` і перезбирає **лише те, що змінилося**. Вона порівнює час зміни файлів: якщо `.c` новіший за свій `.o`, `.o` треба перезібрати.
+
+`Makefile`:
+
+```make
+CC      = arm-none-eabi-gcc
+CFLAGS  = -mcpu=cortex-m4 -mthumb -O1
+LDFLAGS = -nostdlib -T mini.ld -e main
+
+firmware.elf: main.o hal_gpio.o
+	$(CC) $(CFLAGS) $(LDFLAGS) main.o hal_gpio.o -o firmware.elf
+
+main.o: main.c hal_mini.h
+	$(CC) $(CFLAGS) -c main.c -o main.o
+
+hal_gpio.o: hal_gpio.c hal_mini.h
+	$(CC) $(CFLAGS) -c hal_gpio.c -o hal_gpio.o
+
+clean:
+	rm -f *.o firmware.elf
+```
+
+Як читати правило:
+
+```make
+ціль: залежності
+	команда
+```
+
+| Частина | Значення |
+|---|---|
+| ціль (target) | Файл, який треба отримати (`main.o`) |
+| залежності (prerequisites) | Файли, з яких він робиться (`main.c hal_mini.h`) |
+| команда (recipe) | Як його зробити. Рядок **обов'язково** починається з табуляції, не з пробілів |
+| `CC = ...` | Змінна. `$(CC)` підставляє її значення |
+| `clean` | Ціль без файлу: просто команда видалення результатів збірки |
+
+`make` без аргументів будує першу ціль у файлі (`firmware.elf`). Для неї потрібні `main.o` і `hal_gpio.o`, тому спершу Make будує їх.
+
+### Перша збірка: усе
+
+```bash
+make
+```
+
+```
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O1 -c main.c -o main.o
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O1 -c hal_gpio.c -o hal_gpio.o
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O1 -nostdlib -T mini.ld -e main main.o hal_gpio.o -o firmware.elf
+```
+
+### Нічого не змінено: нічого не робиться
+
+```bash
+make
+```
+
+```
+make: 'firmware.elf' is up to date.
+```
+
+### Змінено лише `main.c`: `hal_gpio.o` не перезбирається
+
+```bash
+make
+```
+
+```
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O1 -c main.c -o main.o
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O1 -nostdlib -T mini.ld -e main main.o hal_gpio.o -o firmware.elf
+```
+
+### Змінено `hal_mini.h`: перезбирається все
+
+Обидва `.o` залежать від `hal_mini.h`.
+
+```
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O1 -c main.c -o main.o
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O1 -c hal_gpio.c -o hal_gpio.o
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O1 -nostdlib -T mini.ld -e main main.o hal_gpio.o -o firmware.elf
+```
+
+> Якщо не вказати `hal_mini.h` у залежностях, після зміни заголовка Make вирішить, що все актуально, і прошивка збереться зі старими значеннями.
+
+### Make у CubeIDE
+
+CubeIDE сам генерує `Makefile` у папці `Debug/` (або `Release/`), а кнопка Build запускає `make`. У вкладці Console видно ті самі команди `arm-none-eabi-gcc ... -c ...`.
+
+## 7. Підсумок
 
 | Етап | Що сталося з `HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET)` |
 |---|---|
@@ -300,3 +390,4 @@ arm-none-eabi-size firmware.elf
 | Компілятор | аргументи → `r0`, `r1`, `r2`; виклик → `bl HAL_GPIO_WritePin` |
 | Асемблер | байти; адреса функції = заглушка + relocation |
 | Лінкер | `bl 0x08000014`, код HAL доданий у прошивку |
+| Make | запускає ці етапи лише для змінених файлів |
